@@ -1,3 +1,4 @@
+"use client";
 import { useIsMounted } from "@/app/hooks/useIsMounted";
 import { useAuthStore } from "@/app/stores/useAuthStore";
 import { useRouter } from "next/navigation";
