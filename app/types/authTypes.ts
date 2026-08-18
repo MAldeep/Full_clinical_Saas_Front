@@ -1,3 +1,5 @@
+import { Role } from "./rbac";
+
 export type LoginDto = {
   email: string;
   password: string;
@@ -8,7 +10,8 @@ export type User = {
   name: string;
   email: string;
   phone: string;
-  role: ["Admin", "Staff", "Doctor"];
+  role: Role;
+  permissions?: string;
   isActive: boolean;
   createdAt: string;
   updatedAt: string;
