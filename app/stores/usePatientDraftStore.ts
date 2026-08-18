@@ -30,7 +30,7 @@ export const usePatientDraftStore = create<PatientDraftStore>()(
       draft: initialDraft,
 
       setStep: (step: number) => set({ step }),
-      nextStep: () => set((state) => ({ step: Math.min(state.step + 1) })),
+      nextStep: () => set((state) => ({ step: Math.min(state.step + 1, 2) })),
       prevStep: () => set((state) => ({ step: Math.max(state.step - 1) })),
       resetDraft: () => set({ step: 1, draft: initialDraft }),
       updateDraft: (data: Partial<PatientDraft>) =>
