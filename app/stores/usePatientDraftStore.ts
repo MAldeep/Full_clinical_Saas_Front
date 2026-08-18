@@ -4,7 +4,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 export interface PatientDraft {
   fullName: string;
   phone: string;
-  medicalNotes: string;
+  medicalNotes: string[];
 }
 
 interface PatientDraftStore {
@@ -20,7 +20,7 @@ interface PatientDraftStore {
 const initialDraft = {
   fullName: "",
   phone: "",
-  medicalNotes: "",
+  medicalNotes: [],
 };
 
 export const usePatientDraftStore = create<PatientDraftStore>()(
