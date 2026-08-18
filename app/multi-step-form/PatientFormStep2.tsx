@@ -12,6 +12,7 @@ export default function PatientFormStep2() {
     control,
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm<StepTwo>({
     resolver: zodResolver(draftSchemaStepTwo),
@@ -19,7 +20,12 @@ export default function PatientFormStep2() {
       medicalNotes: draft.medicalNotes.length > 0 ? draft.medicalNotes : [""],
     },
   });
+  const handlePrev = () => {
+    const currentValues = getValues();
+    updateDraft(currentValues);
 
+    prevStep();
+  };
   const { fields, append, remove } = useFieldArray({
     control,
     // @ts-expect-error fieldArray with primitive values
@@ -86,7 +92,7 @@ export default function PatientFormStep2() {
       <div className="pt-4 flex justify-between">
         <button
           type="button"
-          onClick={prevStep}
+          onClick={handlePrev}
           className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-5 py-2 rounded-lg text-sm font-medium transition"
         >
           السابق
